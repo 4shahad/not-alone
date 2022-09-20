@@ -25,7 +25,7 @@ public class AppointmentService {
 
     public void post(PostAppointment ap, Integer id){
         User person=userRepository.findUsersByUsername(ap.getUsername());
-        Appointment appointment1=new Appointment(null,id,person.getId(),ap.getLocation(),ap.getHours(),person.getPricePerHour()*ap.getHours(),"new",ap.getDate(),ap.getRequest(),true);
+        Appointment appointment1=new Appointment(null,id,person.getId(),ap.getLocation(),ap.getHours(),person.getPricePerHour()*ap.getHours(),"new",ap.getDate(),ap.getRequest(),true,false);
         appointmentRepository.save(appointment1);
     }
 
