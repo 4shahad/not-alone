@@ -128,6 +128,12 @@ public class AppointmentService {
         appointmentRepository.save(appointment);
     }
 
+    public void makeItPaid(Integer id,User user) {
+        Appointment appointment=appointmentRepository.findAppointmentByIdAndUserId(id,user.getId());
+        appointment.setPayed(true);
+        appointmentRepository.save(appointment);
+    }
+
     public Appointment getAppById(Integer id,User user) {
         return appointmentRepository.findAppointmentByIdAndUserId(id,user.getId());
     }
