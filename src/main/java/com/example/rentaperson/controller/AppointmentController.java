@@ -94,5 +94,12 @@ public class AppointmentController {
         return ResponseEntity.status(200).body(appointment);
     }
 
+    @PostMapping("/paid/{id}")
+    public ResponseEntity<ApiResponse> paidAppointment(@PathVariable Integer id,@AuthenticationPrincipal User user){
+        appointmentService.makeItPaid(id,user);
+        return ResponseEntity.status(200).body(new ApiResponse("appointment paid !",200));
+    }
+
+
 
 }
